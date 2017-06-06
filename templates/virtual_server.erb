@@ -1,0 +1,68 @@
+<% if !@upstream.empty? -%>
+<% @upstream.each do |key,value| -%>
+upstream <%= key %> {
+<% value.each do |server| -%>
+        <%= server %>;
+<% end -%>
+}
+<% end -%>
+<% end -%>
+server {
+<% if !@listen.empty? -%>
+<% @listen.each do |data| -%>
+    listen  <%= data %>;
+<% end -%>
+<% end -%>
+<% if @root -%>
+    root <%= @root -%>;
+<% end -%>
+<% if @index -%>
+    index <%= @index -%>;
+<% end -%>
+<% if @server_tokens -%>
+    server_tokens	<%= @server_tokens %>;
+<% end -%>
+<% if @server_name -%>
+    server_name 	<%= @server_name %>;
+<% end -%>
+<% if @access_log -%>
+    access_log 		<%= @access_log %>;
+<% end -%>
+<% if @error_log -%>
+    error_log 		<%= @error_log %>;
+<% end -%>
+<% if @return -%>
+    return 301 <%= @return -%>;
+<% end -%>
+<% if @ssl -%>
+    ssl <%= @ssl -%>;
+<% end -%>
+<% if @ssl_certificate -%>
+    ssl_certificate <%= @ssl_certificate -%>;
+<% end -%>
+<% if @ssl_certificate_key -%>
+    ssl_certificate_key <%= @ssl_certificate_key -%>;
+<% end -%>
+<% if !@error_page.empty? -%>
+<% @error_page.each do |data| -%>
+    error_page  <%= data %>;
+<% end -%>
+<% end -%>
+<% if @client_max_body_size -%>
+    client_max_body_size <%= @client_max_body_size %>;
+<% end -%>
+<% if !@location.empty? -%>
+<% @location.each do |key,value| -%>
+    location <%= key %> {
+<% value.each do |directive| -%>
+        <%= directive %>;
+<% end -%>
+    }
+<% end -%>
+<% end -%>
+<% if !@include.empty? -%>
+<% @include.each do |data| -%>
+    include  <%= data %>;
+<% end -%>
+<% end -%>
+}

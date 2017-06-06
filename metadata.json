@@ -1,0 +1,43 @@
+{
+  "name": "aneesh-nginx",
+  "version": "1.6.1",
+  "author": "aneesh",
+  "summary": "Puppet module for nginx",
+  "license": "Apache-2.0",
+  "source": "https://github.com/aneesh-c/puppet-nginx",
+  "project_page": "https://github.com/aneesh-c/puppet-nginx",
+  "issues_url": "https://github.com/aneesh-c/puppet-nginx/issues",
+  "tags": [
+    "nginx",
+    "web",
+    "http",
+    "proxy"
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "12.04",
+        "14.04",
+        "16.04"
+      ]
+    }
+  ],
+  "dependencies": [
+  
+  ]
+}

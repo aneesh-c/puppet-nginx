@@ -1,0 +1,120 @@
+# For more information on configuration, see:
+#   * Official English Documentation: http://nginx.org/en/docs/
+#   * Official Russian Documentation: http://nginx.org/ru/docs/
+
+<% if @user -%>
+user <%= @user -%>;
+<% end -%>
+<% if @worker_processes -%>
+worker_processes <%= @worker_processes -%>;
+<% end -%>
+<% if @error_log -%>
+error_log <%= @error_log -%>;
+<% end -%>
+<% if @pid -%>
+pid <%= @pid -%>;
+<% end -%>
+
+# Load dynamic modules. See /usr/share/nginx/README.dynamic.
+<% if !@include.empty? -%>
+<% @include.each do |directory| -%>
+include <%= directory -%>;
+<% end -%>
+<% end -%>
+
+events {
+<% if @worker_connections -%>
+    worker_connections <%= @worker_connections -%>;
+<% end -%>
+}
+
+http {
+<% if scope.lookupvar('::osfamily') == 'RedHat' -%>
+    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                      '$status $body_bytes_sent "$http_referer" '
+                      '"$http_user_agent" "$http_x_forwarded_for"';
+<% end -%>
+
+<% if @access_log -%>
+    access_log  <%= @access_log -%>;
+<% end -%>
+
+<% if @sendfile -%>
+    sendfile            <%= @sendfile -%>;
+<% end -%>
+<% if @tcp_nopush -%>
+    tcp_nopush          <%= @tcp_nopush -%>;
+<% end -%>
+<% if @tcp_nodelay -%>
+    tcp_nodelay         <%= @tcp_nodelay -%>;
+<% end -%>
+<% if @keepalive_timeout -%>
+    keepalive_timeout   <%= @keepalive_timeout -%>;
+<% end -%>
+<% if @types_hash_max_size -%>
+    types_hash_max_size <%= @types_hash_max_size -%>;
+<% end -%>
+
+<% if @default_type -%>
+    default_type        <%= @default_type -%>;
+<% end -%>
+
+    # Load modular configuration files from the /etc/nginx/conf.d directory.
+    # See http://nginx.org/en/docs/ngx_core_module.html#include
+    # for more information.
+<% if !@http_include.empty? -%>
+<% @http_include.each do |directory| -%>
+    include <%= directory -%>;
+<% end -%>
+<% end -%>
+<% if @http_error_log -%>
+    error_log <%= @http_error_log -%>;
+<% end -%>
+<% if @gzip -%>
+    gzip <%= @gzip -%>;
+<% end -%>
+<% if @gzip_disable -%>
+    gzip_disable <%= @gzip_disable -%>;
+<% end -%>
+<% if @ssl_protocols -%>
+    ssl_protocols <%= @ssl_protocols -%>;
+<% end -%>
+<% if @ssl_prefer_server_ciphers -%>
+    ssl_prefer_server_ciphers <%= @ssl_prefer_server_ciphers -%>;
+<% end -%>
+<% if @server_tokens -%>
+    server_tokens <%= @server_tokens -%>;
+<% end -%>
+
+# Settings for a TLS enabled server.
+#
+#    server {
+#        listen       443 ssl http2 default_server;
+#        listen       [::]:443 ssl http2 default_server;
+#        server_name  _;
+#        root         /usr/share/nginx/html;
+#
+#        ssl_certificate "/etc/pki/nginx/server.crt";
+#        ssl_certificate_key "/etc/pki/nginx/private/server.key";
+#        ssl_session_cache shared:SSL:1m;
+#        ssl_session_timeout  10m;
+#        ssl_ciphers HIGH:!aNULL:!MD5;
+#        ssl_prefer_server_ciphers on;
+#
+#        # Load configuration files for the default server block.
+#        include /etc/nginx/default.d/*.conf;
+#
+#        location / {
+#        }
+#
+#        error_page 404 /404.html;
+#            location = /40x.html {
+#        }
+#
+#        error_page 500 502 503 504 /50x.html;
+#            location = /50x.html {
+#        }
+#    }
+
+}
+
