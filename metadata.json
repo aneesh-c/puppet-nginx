@@ -1,12 +1,16 @@
 {
   "name": "aneesh-nginx",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "author": "aneesh",
   "summary": "Puppet module for nginx",
   "license": "Apache-2.0",
   "source": "https://github.com/aneesh-c/puppet-nginx",
   "project_page": "https://github.com/aneesh-c/puppet-nginx",
   "issues_url": "https://github.com/aneesh-c/puppet-nginx/issues",
+  "dependencies": [
+  
+  ],
+  "data_provider": null,
   "tags": [
     "nginx",
     "web",
@@ -33,7 +37,8 @@
       "operatingsystemrelease": [
         "12.04",
         "14.04",
-        "16.04"
+        "16.04",
+        "17.04"
       ]
     },
     {
@@ -43,8 +48,5 @@
         "8"
       ]
     }
-  ],
-  "dependencies": [
-  
   ]
 }

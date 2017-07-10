@@ -56,7 +56,7 @@ class nginx (
 ) {
   package { $package_name: ensure => installed }
   file { $configfile:
-    require => package[$package_name],
+    require => Package[$package_name],
     backup  => '.backup',
     content => template($template),
   }

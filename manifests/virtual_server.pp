@@ -23,15 +23,15 @@ define nginx::virtual_server (
   if ! defined(File['/etc/nginx/sites-available']) {
     file { '/etc/nginx/sites-available':
       ensure  => directory,
-      require => package[$package_name],
+      require => Package[$package_name],
     }
     file { '/etc/nginx/sites-enabled':
       ensure  => directory,
-      require => package[$package_name],
+      require => Package[$package_name],
     }
   }
   file { "${virtualhostdir}/${file_name}":
-    require => package[$package_name],
+    require => Package[$package_name],
     backup  => '.backup',
     content => template($template),
   }
