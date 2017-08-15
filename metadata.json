@@ -1,6 +1,6 @@
 {
   "name": "aneesh-nginx",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "author": "aneesh",
   "summary": "Puppet module for nginx",
   "license": "Apache-2.0",
