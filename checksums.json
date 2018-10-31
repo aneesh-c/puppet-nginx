@@ -1,9 +1,9 @@
 {
-  "LICENSE": "ea3abe1d0358033f43557a00f6fcc43e",
+  "LICENSE": "50d908cf666418ed04b9f5858b168530",
   "README.md": "7232dbb83fb1703d990c813c8eb95878",
   "manifests/init.pp": "68e752b0d49e890278c0f6611e81deb9",
   "manifests/virtual_server.pp": "9fa465d0be38a0a19604bc72ee2d0e22",
-  "metadata.json": "a1fc0d5cb1b6de67cad40fc5b3e71126",
+  "metadata.json": "5f00ca4f3aa8e86ac909cce9bc9fdfb2",
   "templates/configfile.erb": "e1f08d30792ef2633a57d5254ff9ec2f",
   "templates/virtual_server.erb": "797ccce021cd4a13cb60a7ffdebcd3ff"
 }
